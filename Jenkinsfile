@@ -19,7 +19,7 @@ pipeline
                 script
                 {
                     JOB_ID = "${env.BUILD_TAG}"
-                    jenkinsLib = load("/home/ubuntu/jenkins_426.groovy")
+                    jenkinsLib = load("/home/jenkins/jenkins_426.groovy")
 
                     jenkinsLib.CreateUbuntuBuildNode(JOB_ID)
                     jenkinsLib.CreateWindowsBuildNode(JOB_ID)
@@ -35,7 +35,7 @@ pipeline
                     agent { label "ubuntu && build && ${JOB_ID}" }
                     environment
                     {
-                        UE4_ROOT = '/home/ubuntu/UnrealEngine_4.26'
+                        UE4_ROOT = '/home/jenkins/UnrealEngine_4.26'
                     }
                     stages
                     {
@@ -114,7 +114,7 @@ pipeline
                                         script
                                         {
                                             JOB_ID = "${env.BUILD_TAG}"
-                                            jenkinsLib = load("/home/ubuntu/jenkins_426.groovy")
+                                            jenkinsLib = load("/home/jenkins/jenkins_426.groovy")
 
                                             jenkinsLib.CreateUbuntuTestNode(JOB_ID)
                                         }
@@ -150,7 +150,7 @@ pipeline
                                         script
                                         {
                                             JOB_ID = "${env.BUILD_TAG}"
-                                            jenkinsLib = load("/home/ubuntu/jenkins_426.groovy")
+                                            jenkinsLib = load("/home/jenkins/jenkins_426.groovy")
 
                                             jenkinsLib.DeleteUbuntuTestNode(JOB_ID)
                                         }
@@ -217,7 +217,7 @@ pipeline
                                 script
                                 {
                                     JOB_ID = "${env.BUILD_TAG}"
-                                    jenkinsLib = load("/home/ubuntu/jenkins_426.groovy")
+                                    jenkinsLib = load("/home/jenkins/jenkins_426.groovy")
 
                                     jenkinsLib.DeleteUbuntuBuildNode(JOB_ID)
                                 }
@@ -330,7 +330,7 @@ pipeline
                                 script
                                 {
                                     JOB_ID = "${env.BUILD_TAG}"
-                                    jenkinsLib = load("/home/ubuntu/jenkins_426.groovy")
+                                    jenkinsLib = load("/home/jenkins/jenkins_426.groovy")
 
                                     jenkinsLib.DeleteWindowsBuildNode(JOB_ID)
                                 }
