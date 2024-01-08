@@ -19,6 +19,7 @@ pipeline
                 script
                 {
                     JOB_ID = "${env.BUILD_TAG}"
+                    echo "JOB_ID is  "
                     echo JOB_ID
                     jenkinsLib = load("/home/jenkins/jenkins_426.groovy")
 
