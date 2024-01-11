@@ -20,9 +20,10 @@ pipeline
                 {
                     JOB_ID = "${env.BUILD_TAG}"
                     jenkinsLib = load("/home/jenkins/jenkins_426.groovy")
-
-                    jenkinsLib.CreateUbuntuBuildNode(JOB_ID)
-                    jenkinsLib.CreateWindowsBuildNode(JOB_ID)
+                    withCredentials([sshUserPrivateKey(credentialsId: 'Private-key', keyFileVariable: '')]) {
+                        jenkinsLib.CreateUbuntuBuildNode(JOB_ID)
+                        jenkinsLib.CreateWindowsBuildNode(JOB_ID)
+                    }
                 }
             }
         }
@@ -116,7 +117,9 @@ pipeline
                                             JOB_ID = "${env.BUILD_TAG}"
                                             jenkinsLib = load("/home/jenkins/jenkins_426.groovy")
 
-                                            jenkinsLib.CreateUbuntuTestNode(JOB_ID)
+                                            withCredentials([sshUserPrivateKey(credentialsId: 'Private-key', keyFileVariable: '')]) {
+                                                jenkinsLib.CreateUbuntuTestNode(JOB_ID)
+                                            }
                                         }
                                     }
                                 }
@@ -152,7 +155,9 @@ pipeline
                                             JOB_ID = "${env.BUILD_TAG}"
                                             jenkinsLib = load("/home/jenkins/jenkins_426.groovy")
 
-                                            jenkinsLib.DeleteUbuntuTestNode(JOB_ID)
+                                            withCredentials([sshUserPrivateKey(credentialsId: 'Private-key', keyFileVariable: '')]) {               
+                                                jenkinsLib.DeleteUbuntuTestNode(JOB_ID)
+                                            }
                                         }
                                     }
                                 }
@@ -219,7 +224,9 @@ pipeline
                                     JOB_ID = "${env.BUILD_TAG}"
                                     jenkinsLib = load("/home/jenkins/jenkins_426.groovy")
 
-                                    jenkinsLib.DeleteUbuntuBuildNode(JOB_ID)
+                                    withCredentials([sshUserPrivateKey(credentialsId: 'Private-key', keyFileVariable: '')]) {
+                                        jenkinsLib.DeleteUbuntuBuildNode(JOB_ID)
+                                    }
                                 }
                             }
                         }
@@ -332,7 +339,9 @@ pipeline
                                     JOB_ID = "${env.BUILD_TAG}"
                                     jenkinsLib = load("/home/jenkins/jenkins_426.groovy")
 
-                                    jenkinsLib.DeleteWindowsBuildNode(JOB_ID)
+                                    withCredentials([sshUserPrivateKey(credentialsId: 'Private-key', keyFileVariable: '')]) {
+                                        jenkinsLib.DeleteWindowsBuildNode(JOB_ID)
+                                    }
                                 }
                             }
                         }
